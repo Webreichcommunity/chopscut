@@ -1,78 +1,114 @@
 import React from 'react';
-import { MailIcon, PhoneIcon, MapIcon } from '@heroicons/react/outline';
-import { FaInstagram, FaFacebook, FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { Mail, Phone, MapPin, Clock, Instagram, Facebook, Youtube, Twitter, Linkedin } from 'lucide-react';
 
 const Footer = () => {
-   return (
-     <footer className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-12 px-6 border-t border-gray-700">
-       <div className="container mx-auto grid md:grid-cols-3 gap-12 items-start">
-         {/* Shop Information */}
-         <div className="text-center md:text-left">
-           <h2 className="text-4xl font-bold mb-6 text-white">
-             Chops <span className='text-red-700'>CUT</span>
-           </h2>
-           <div className="space-y-4 text-gray-300">
-             <p className="flex items-center justify-center md:justify-start">
-               <MapIcon className="h-6 w-6 mr-2 text-red-700" />
-               123 Meat Street, Butcher's Block, Akola
-             </p>
-             <p className="flex items-center justify-center md:justify-start">
-               <PhoneIcon className="h-6 w-6 mr-2 text-red-700" />
-               +91 (123) 456-7890
-             </p>
-             <p className="flex items-center justify-center md:justify-start">
-               <MailIcon className="h-6 w-6 mr-2 text-red-700" />
-               contact@chopscut.com
-             </p>
-           </div>
-         </div>
-          
-         {/* Developer & Social Links */}
-         <div className="text-center md:text-right">
-           <h3 className="text-2xl font-semibold mb-4 text-red-700">Connect With Us</h3>
-           <div className="flex justify-center md:justify-end space-x-6 mb-6">
-             {[
-               { Icon: FaInstagram, href: "https://www.instagram.com" },
-               { Icon: FaFacebook, href: "https://www.facebook.com" },
-               { Icon: FaWhatsapp, href: "https://wa.me/1234567890" },
-               { Icon: FaGithub, href: "https://github.com/yourusername" },
-               { Icon: FaLinkedin, href: "https://linkedin.com/in/yourusername" }
-             ].map(({ Icon, href }, index) => (
-               <a
-                 key={index}
-                 href={href}
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 className="text-gray-300 hover:text-red-700 transform transition-all duration-300 hover:scale-110"
-               >
-                 <Icon className="h-8 w-8" />
-               </a>
-             ))}
-           </div>
-           <div className="text-gray-400 text-sm">
-             <p>Developed by <span className='text-white font-medium'>WebReich Technologies</span></p>
-             <p>Design & Concept by <span className='text-white font-medium'>WebReich </span></p>
-           </div>
-         </div>
-       </div>
-        
-       {/* Copyright Section */}
-       <div className="mt-8 text-center text-gray-500 border-t border-gray-700 pt-4">
-         <p>&copy; {new Date().getFullYear()} Chops Cut Raw Meat Shop. All Rights Reserved.</p>
-         <p className="text-xs mt-2">Proudly built with React & Tailwind CSS</p>
-       </div>
-        
-       <style jsx>{`
-         @keyframes fadeIn {
-           0% { opacity: 0; transform: translateY(20px); }
-           100% { opacity: 1; transform: translateY(0); }
-         }
-         footer {
-           animation: fadeIn 1s ease-out;
-         }
-       `}</style>
-     </footer>
-   );
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-gradient-to-b from-gray-900 to-black text-white">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Top Section with Logo and Description */}
+        {/* <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold mb-4">
+            Chops <span className="text-red-700">CUT</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Your premium destination for high-quality raw meat. We pride ourselves on delivering fresh, 
+            carefully selected cuts to your table with uncompromising quality and service.
+          </p>
+        </div> */}
+
+        {/* Main Two-Column Grid Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          {/* Left Column - Contact Information */}
+          <div className="space-y-8 border-r border-gray-800 pr-8">
+            <h3 className="text-2xl font-semibold mb-8 text-red-700">Get in Touch</h3>
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4 group hover:bg-gray-800/30 p-3 rounded-lg transition-all duration-300">
+                <MapPin className="h-6 w-6 text-red-700 group-hover:text-red-500 transition-colors" />
+                <p className="text-gray-300 group-hover:text-white transition-colors">
+                  123 Meat Street, Butcher's Block, Akola
+                </p>
+              </div>
+              <div className="flex items-center space-x-4 group hover:bg-gray-800/30 p-3 rounded-lg transition-all duration-300">
+                <Phone className="h-6 w-6 text-red-700 group-hover:text-red-500 transition-colors" />
+                <p className="text-gray-300 group-hover:text-white transition-colors">
+                  +91 (123) 456-7890
+                </p>
+              </div>
+              <div className="flex items-center space-x-4 group hover:bg-gray-800/30 p-3 rounded-lg transition-all duration-300">
+                <Mail className="h-6 w-6 text-red-700 group-hover:text-red-500 transition-colors" />
+                <p className="text-gray-300 group-hover:text-white transition-colors">
+                  contact@chopscut.com
+                </p>
+              </div>
+              <div className="flex items-center space-x-4 group hover:bg-gray-800/30 p-3 rounded-lg transition-all duration-300">
+                <Clock className="h-6 w-6 text-red-700 group-hover:text-red-500 transition-colors" />
+                <p className="text-gray-300 group-hover:text-white transition-colors">
+                  Mon - Sat: 7:00 AM - 9:00 PM
+                </p>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="pt-6">
+              <h4 className="text-lg font-medium text-gray-300 mb-4">Follow Us</h4>
+              <div className="flex space-x-5">
+                {[Instagram, Facebook, Youtube, Twitter, Linkedin].map((Icon, index) => (
+                  <a
+                    key={index}
+                    href="#"
+                    className="text-gray-400 hover:text-red-700 transform hover:scale-110 transition-all duration-300"
+                  >
+                    <Icon className="h-6 w-6" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Newsletter */}
+          <div className="space-y-8 pl-0 md:pl-8">
+            <h3 className="text-2xl font-semibold mb-8 text-red-700">Stay Updated</h3>
+            <div className="bg-gray-800/30 p-6 rounded-xl space-y-6">
+              <div>
+                <h4 className="text-xl font-medium text-white mb-2">Subscribe to Our Newsletter</h4>
+                <p className="text-gray-300">
+                  Get exclusive offers, new product announcements, and expert butchery tips directly in your inbox.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-red-700 transition-colors"
+                />
+                <button className="w-full bg-red-700 hover:bg-red-600 text-white py-3 rounded-lg transition-colors duration-300 font-medium">
+                  Subscribe Now
+                </button>
+              </div>
+              <p className="text-gray-400 text-sm">
+                By subscribing, you agree to receive marketing emails. You can unsubscribe at any time.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="border-t border-gray-800 pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+            <p className="text-gray-400 text-center md:text-left text-sm">
+              © {currentYear} Chops Cut Raw Meat Shop. All Rights Reserved.
+            </p>
+            <div className="text-gray-400 text-center md:text-right">
+              <p>Developed with ❤️ by <span className="text-red-700 font-medium">WebReich Technologies</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

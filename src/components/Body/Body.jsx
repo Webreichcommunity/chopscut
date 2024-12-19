@@ -5,6 +5,7 @@ import foodItemsData from '../../../db.json';
 import { useCart } from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
 import Alert from '@mui/material/Alert';
+import { ArrowRight, Users, PhoneCall } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 
@@ -24,30 +25,30 @@ const Body = () => {
   // Offer cards
   const offerCards = [
     {
-        title: '🥩 Meat Lover\'s Mega Deal!',
-        description: 'Flat 35% OFF on Premium Meat Selection - Chicken, Goat & Seafood!',
-        bg: 'bg-cover bg-center',
-        image: 'https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=600'
+      title: '🥩 Meat Lover\'s Mega Deal!',
+      description: 'Flat 35% OFF on Premium Meat Selection - Chicken, Goat & Seafood!',
+      bg: 'bg-cover bg-center',
+      image: 'https://images.pexels.com/photos/65175/pexels-photo-65175.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-        title: '🍗 Butcher\'s Choice Bundle',
-        description: 'Buy 2 Chicken Cuts, Get 1 Free + Exclusive Marinade Sampler!',
-        bg: 'bg-cover bg-center',
-        image: 'https://images.pexels.com/photos/1314041/pexels-photo-1314041.jpeg?auto=compress&cs=tinysrgb&w=600'
+      title: '🍗 Butcher\'s Choice Bundle',
+      description: 'Buy 2 Chicken Cuts, Get 1 Free + Exclusive Marinade Sampler!',
+      bg: 'bg-cover bg-center',
+      image: 'https://images.pexels.com/photos/1314041/pexels-photo-1314041.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-        title: '🐐 Goat Meat Bonanza',
-        description: 'Weekend Special: 50% OFF on Premium Goat Cuts - Limited Time Offer!',
-        bg: 'bg-cover bg-center',
-        image: 'https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=600'
+      title: '🐐 Goat Meat Bonanza',
+      description: 'Weekend Special: 50% OFF on Premium Goat Cuts - Limited Time Offer!',
+      bg: 'bg-cover bg-center',
+      image: 'https://images.pexels.com/photos/616354/pexels-photo-616354.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
-        title: '🐟 Fresh Catch Seafood Extravaganza',
-        description: 'Premium Seafood Pack - Flat 40% OFF on All Fresh Fish Varieties!',
-        bg: 'bg-cover bg-center',
-        image: 'https://images.pexels.com/photos/8951039/pexels-photo-8951039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      title: '🐟 Fresh Catch Seafood Extravaganza',
+      description: 'Premium Seafood Pack - Flat 40% OFF on All Fresh Fish Varieties!',
+      bg: 'bg-cover bg-center',
+      image: 'https://images.pexels.com/photos/8951039/pexels-photo-8951039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     }
-];
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -162,73 +163,73 @@ const Body = () => {
       </div>
 
       {/* Filter Buttons */}
-      <div 
-      className="fixed top-16 right-0 w-full z-20"
-      style={{
-        background: 'linear-gradient(to right, rgba(255,255,255,0.1), rgba(220,38,38,0.05))',
-        backdropFilter: 'blur(15px)',
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      }}
-    >
-      <div className="container mx-auto">
-        <div className="w-full flex space-x-3 overflow-x-auto no-scrollbar py-3 px-2">
-          {/* All Category Button */}
-          <motion.button
-            className={`
+      <div
+        className="fixed top-16 right-0 w-full z-20"
+        style={{
+          background: 'linear-gradient(to right, rgba(255,255,255,0.1), rgba(220,38,38,0.05))',
+          backdropFilter: 'blur(15px)',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+        }}
+      >
+        <div className="container mx-auto">
+          <div className="w-full flex space-x-3 overflow-x-auto no-scrollbar py-3 px-2">
+            {/* All Category Button */}
+            <motion.button
+              className={`
               px-5 py-2 whitespace-nowrap rounded-full 
               transition-all duration-300 ease-in-out
-              ${filter === '' 
-                ? 'bg-red-700 text-white shadow-lg' 
-                : 'bg-gray-300 text-gray-700 hover:bg-red-50 hover:text-red-700'}
-            `}
-            onClick={() => handleFilterChange('All')}
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            <span className="text-sm font-semibold">All</span>
-          </motion.button>
-
-          {/* Category Buttons */}
-          {categories.map((category, index) => (
-            <motion.button
-              key={index}
-              className={`
-                px-5 py-2 whitespace-nowrap rounded-full 
-                transition-all duration-300 ease-in-out
-                ${filter === category 
-                  ? 'bg-red-700 text-white shadow-lg' 
+              ${filter === ''
+                  ? 'bg-red-700 text-white shadow-lg'
                   : 'bg-gray-300 text-gray-700 hover:bg-red-50 hover:text-red-700'}
-              `}
-              onClick={() => handleFilterChange(category)}
+            `}
+              onClick={() => handleFilterChange('All')}
               whileTap={{ scale: 0.95 }}
               whileHover={{ scale: 1.05 }}
             >
-              <span className="text-sm font-semibold">{category}</span>
+              <span className="text-sm font-semibold">All</span>
             </motion.button>
-          ))}
+
+            {/* Category Buttons */}
+            {categories.map((category, index) => (
+              <motion.button
+                key={index}
+                className={`
+                px-5 py-2 whitespace-nowrap rounded-full 
+                transition-all duration-300 ease-in-out
+                ${filter === category
+                    ? 'bg-red-700 text-white shadow-lg'
+                    : 'bg-gray-300 text-gray-700 hover:bg-red-50 hover:text-red-700'}
+              `}
+                onClick={() => handleFilterChange(category)}
+                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <span className="text-sm font-semibold">{category}</span>
+              </motion.button>
+            ))}
+          </div>
         </div>
+
+        {/* Gradient Border Effect */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-0.5"
+          style={{
+            background: 'linear-gradient(to right, transparent, rgba(220,38,38,0.3), transparent)'
+          }}
+        />
       </div>
 
-      {/* Gradient Border Effect */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-0.5"
-        style={{
-          background: 'linear-gradient(to right, transparent, rgba(220,38,38,0.3), transparent)'
-        }}
-      />
-    </div>
-
-      {/* Categories Filter */} 
+      {/* Categories Filter */}
       <h5 className='font-bold text-gray-900 text-xl mb-3 text-left'>What are you <span className='text-red-700 text-2xl'>craving</span> for?</h5>
-      <div 
-      className="w-full mb-6 py-4 flex overflow-x-auto space-x-4 no-scrollbar"
-      style={{
-        backdropFilter: 'blur(10px)',
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2))',
-        boxShadow: '0 8px 32px 0 rgba(0,0,0,0.18)'
-      }}
-    >
-      <style jsx>{`
+      <div
+        className="w-full mb-6 py-4 flex overflow-x-auto space-x-4 no-scrollbar"
+        style={{
+          backdropFilter: 'blur(10px)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(0,0,0,0.2))',
+          boxShadow: '0 8px 32px 0 rgba(0,0,0,0.18)'
+        }}
+      >
+        <style jsx>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
@@ -238,66 +239,101 @@ const Body = () => {
         }
       `}</style>
 
-      {/* All Food Items Card */}
-      <motion.div 
-        className="flex-shrink-0 transform transition-all duration-300 hover:scale-105"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <motion.button
-          className={`relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 
-            ${filter === '' ? 'ring-4 ring-yellow-400' : 'hover:ring-2 hover:ring-white'}
-            w-[130px] h-[160px] flex flex-col justify-end p-4`}
-          onClick={() => handleFilterChange('All')}
-          style={{
-            background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7))',
-            backdropFilter: 'blur(10px)',
-            backgroundImage: 'url("https://images.pexels.com/photos/1314041/pexels-photo-1314041.jpeg?auto=compress&cs=tinysrgb&w=600")',
-            backgroundSize: '100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
-          <div className="absolute inset-0 bg-black opacity-30"></div>
-          <div className="relative z-10 text-white text-center">
-            <span className="text-lg font-bold drop-shadow-lg">
-              All Food Items
-            </span>
-          </div>
-        </motion.button>
-      </motion.div>
-
-      {/* Category Cards */}
-      {[...subCategories, ...categories].map((category, index) => (
-        <motion.div 
-          key={index} 
+        {/* All Food Items Card */}
+        <motion.div
           className="flex-shrink-0 transform transition-all duration-300 hover:scale-105"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <motion.button
             className={`relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 
-              ${filter === category ? 'ring-4 ring-yellow-400' : 'hover:ring-2 hover:ring-white'}
-              w-[130px] h-[160px] flex flex-col justify-end p-4`}
-            onClick={() => handleFilterChange(category)}
+            ${filter === '' ? 'ring-4 ring-yellow-400' : 'hover:ring-2 hover:ring-white'}
+            w-[130px] h-[160px] flex flex-col justify-end p-4`}
+            onClick={() => handleFilterChange('All')}
             style={{
               background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7))',
               backdropFilter: 'blur(10px)',
-              backgroundImage: `url(${imageLinks[index % imageLinks.length]})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundImage: 'url("https://images.pexels.com/photos/1314041/pexels-photo-1314041.jpeg?auto=compress&cs=tinysrgb&w=600")',
+              backgroundSize: '100%',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
             }}
           >
             <div className="absolute inset-0 bg-black opacity-30"></div>
             <div className="relative z-10 text-white text-center">
               <span className="text-lg font-bold drop-shadow-lg">
-                {category}
+                All Food Items
               </span>
             </div>
           </motion.button>
         </motion.div>
-      ))}
-    </div>
+
+        {/* Category Cards */}
+        {[...subCategories, ...categories].map((category, index) => (
+          <motion.div
+            key={index}
+            className="flex-shrink-0 transform transition-all duration-300 hover:scale-105"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <motion.button
+              className={`relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-300 
+              ${filter === category ? 'ring-4 ring-yellow-400' : 'hover:ring-2 hover:ring-white'}
+              w-[130px] h-[160px] flex flex-col justify-end p-4`}
+              onClick={() => handleFilterChange(category)}
+              style={{
+                background: 'linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7))',
+                backdropFilter: 'blur(10px)',
+                backgroundImage: `url(${imageLinks[index % imageLinks.length]})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-black opacity-30"></div>
+              <div className="relative z-10 text-white text-center">
+                <span className="text-lg font-bold drop-shadow-lg">
+                  {category}
+                </span>
+              </div>
+            </motion.button>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* About us and contact us buttons  */}
+
+      <div className="relative px-8 py-12 md:p-16 grid md:grid-cols-2 gap-8 items-center">
+        {/* About Us Button Section */}
+        <div className="text-center md:text-left space-y-6">
+          <h3 className="text-gray-800 text-2xl md:text-3xl font-bold">Discover Our Story</h3>
+          <p className="text-gray-700">
+            Learn about our journey, values, and commitment to delivering premium quality meat.
+          </p>
+          <Link to="/about">
+            <button className="relative inline-flex items-center justify-center bg-red-700 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl mt-4">
+              <Users className="w-5 h-5 mr-2" />
+              <span>About Us</span>
+              <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+        </div>
+
+        {/* Contact Us Button Section */}
+        <div className="text-center md:text-left space-y-6">
+          <h3 className="text-gray-800 text-2xl md:text-3xl font-bold">Get in Touch</h3>
+          <p className="text-gray-700">
+            Have questions? Reach out to us. We're here to help with all your meat needs.
+          </p>
+          <Link to="/contact">
+            <button className="relative inline-flex items-center justify-center bg-red-700 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-500 transition-all duration-300 shadow-lg hover:shadow-xl mt-4">
+              <PhoneCall className="w-5 h-5 mr-2" />
+              <span>Contact Us</span>
+              <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+            </button>
+          </Link>
+        </div>
+      </div>
+
 
 
       {/* Search Bar */}

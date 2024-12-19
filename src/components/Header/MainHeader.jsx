@@ -33,9 +33,9 @@ const MainHeader = ({ onMenuToggle }) => {
                 <div className="flex items-center space-x-2">
                     {/* Logo */}
                     <Link to="/" className="flex items-center">
-                        <img 
-                            src="/chofcutlogo.jpg" 
-                            alt="Meat Shop Logo" 
+                        <img
+                            src="/chofcutlogo.jpg"
+                            alt="Meat Shop Logo"
                             className="h-10 w-40 object-contain"
                         />
                     </Link>
@@ -44,13 +44,15 @@ const MainHeader = ({ onMenuToggle }) => {
                 {/* Right Section: Menu and Cart */}
                 <div className="flex items-center space-x-4">
                     {/* Menu Button */}
-                    <button
-                        onClick={onMenuToggle}
-                        className="p-2 rounded-full hover:bg-gray-100 transition-all duration-300"
-                        aria-label="Menu"
-                    >
-                        <MdMenu className="h-6 w-6 text-gray-900" />
-                    </button>
+                    <Link to="/">
+                        <button
+                            onClick={onMenuToggle}
+                            className="p-2 rounded-full hover:bg-gray-100 transition-all duration-300"
+                            aria-label="Menu"
+                        >
+                            <MdMenu className="h-6 w-6 text-gray-900" />
+                        </button>
+                    </Link>
 
                     {/* Cart Button */}
                     <Link
